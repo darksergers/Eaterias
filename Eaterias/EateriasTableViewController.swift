@@ -10,9 +10,10 @@ import UIKit
 
 class EateriasTableViewController: UITableViewController {
 
-    let restaurantNames = ["Ogonёk Grill&Bar", "Елу", "Bonsai", "Дастархан", "Индокитай", "X.O", "Балкан Гриль", "Respublica", "Speak Easy", "Morris Pub", "Вкусные истории", "Классик", "Love&Life", "Шок", "Бочка"]
+    var restaurantNames = ["Ogonёk Grill&Bar", "Елу", "Bonsai", "Дастархан", "Индокитай", "X.O", "Балкан Гриль", "Respublica", "Speak Easy", "Morris Pub", "Вкусные истории", "Классик", "Love&Life", "Шок", "Бочка"]
     
-    let restaurantImages = ["ogonek.jpg", "elu.jpg", "bonsai.jpg", "dastarhan.jpg", "indokitay.jpg", "x.o.jpg", "balkan.jpg", "respublika.jpg", "speakeasy.jpg", "morris.jpg", "istorii.jpg", "klassik.jpg", "love.jpg", "shok.jpg", "bochka.jpg"]
+    var restaurantImages = ["ogonek.jpg", "elu.jpg", "bonsai.jpg", "dastarhan.jpg", "indokitay.jpg", "x.o.jpg", "balkan.jpg", "respublika.jpg", "speakeasy.jpg", "morris.jpg", "istorii.jpg", "klassik.jpg", "love.jpg", "shok.jpg", "bochka.jpg"]
+    var restaurantIsVisited = [Bool](repeatElement(false, count: 15))
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -44,10 +45,7 @@ class EateriasTableViewController: UITableViewController {
         cell.thumbnailImageView.layer.cornerRadius = 32.5
         cell.thumbnailImageView.clipsToBounds = true
         cell.nameLabel.text = restaurantNames[indexPath.row]
-        
-
-        
-
+        cell.accessoryType = restaurantIsVisited[indexPath.row] ? .checkmark : .none
         return cell
     }
     
@@ -63,19 +61,56 @@ class EateriasTableViewController: UITableViewController {
             self.present(alertC, animated: true, completion: nil)
             
         }
-        let isVisited = UIAlertAction(title: "Я здесь был", style: .default){
+        let isVisitedTitle = self.restaurantIsVisited[indexPath.row] ? "Я здесь не был" :"Я здесь был"
+        let isVisited = UIAlertAction(title: isVisitedTitle, style: .default){
             (action) in
             let cell = tableView.cellForRow(at: indexPath)
-            cell?.accessoryType = .checkmark
+            self.restaurantIsVisited[indexPath.row] = !self.restaurantIsVisited[indexPath.row]
+            cell?.accessoryType = self.restaurantIsVisited[indexPath.row] ? .checkmark : .none
+            
+            
             
         }
         let cancel = UIAlertAction(title:"Отмена", style:.cancel, handler:nil)
-        ac.addAction(cancel)
-        ac.addAction(isVisited)
         ac.addAction(call)
+        ac.addAction(isVisited)
+        ac.addAction(cancel)
         present(ac, animated: true, completion: nil)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
+//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+//            self.restaurantNames.remove(at: indexPath.row)
+//            self.restaurantImages.remove(at: indexPath.row)
+//            self.restaurantIsVisited.remove(at: indexPath.row)
+//        }
+//        tableView.deleteRows(at: [indexPath], with: .fade)
+//
+//    }
+    
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let share = UITableViewRowAction(style: .default, title: "Поделиться"){
+            (action,indexPath) in
+            let defaultText = "Я сейчас в " + self.restaurantNames[indexPath.row]
+            if let image = UIImage(named:self.restaurantImages[indexPath.row]){
+                let activityController = UIActivityViewController(activityItems: [defaultText,image], applicationActivities: nil)
+                self.present(activityController, animated: true, completion: nil)
+                
+            }
+        }
+        let delete = UITableViewRowAction(style: .default, title: "Удалить"){
+            (action,indexPath) in
+            self.restaurantNames.remove(at: indexPath.row)
+            self.restaurantImages.remove(at: indexPath.row)
+            self.restaurantIsVisited.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+        share.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
+        delete.backgroundColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+        
+        return [delete,share]
+    }
     
     
 

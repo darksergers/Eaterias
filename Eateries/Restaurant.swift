@@ -7,10 +7,11 @@
 //
 
 import Foundation
+
 struct Restaurant {
-    let name:String
-    let type:String
-    let location:String
-    let image:String
-    let isVisited:Bool
+  let name: String
+  let type: String
+  let location: String
+  let image: String
+  let isVisited: Bool 
 }

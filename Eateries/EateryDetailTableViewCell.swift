@@ -8,11 +8,12 @@
 
 import UIKit
 
-class DetailTableViewCell: UITableViewCell {
+class EateryDetailTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var keyLabel: UILabel!
-    
-    @IBOutlet weak var valueLabel: UILabel!
+  @IBOutlet weak var keyLabel: UILabel!
+  @IBOutlet weak var valueLabel: UILabel!
+  
+  
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

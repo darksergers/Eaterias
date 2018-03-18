@@ -8,16 +8,18 @@
 
 import UIKit
 
-class NewEateryTableViewController: UITableViewController {
+class NewEateryTableViewController: UITableViewController, UIImagePickerControllerDelegate,UINavigationControllerDelegate {
 
+    @IBOutlet weak var imageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        imageView.image = info[UIImagePickerControllerEditedImage] as? UIImage
+        imageView.contentMode = .scaleAspectFit
+        imageView.clipsToBounds = true
+        dismiss(animated: true, completion: nil)
     }
 
 
@@ -43,6 +45,7 @@ class NewEateryTableViewController: UITableViewController {
     func chooseImagePickerAction(source: UIImagePickerControllerSourceType) {
         if UIImagePickerController.isSourceTypeAvailable(source) {
             let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
             imagePicker.allowsEditing = true
             imagePicker.sourceType = source
             self.present(imagePicker, animated: true, completion: nil)

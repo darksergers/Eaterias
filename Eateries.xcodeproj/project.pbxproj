@@ -14,12 +14,13 @@
 		353FD2801D9D6E21001D9C00 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 353FD27E1D9D6E21001D9C00 /* LaunchScreen.storyboard */; };
 		353FD2881D9D6EBF001D9C00 /* EateriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353FD2871D9D6EBF001D9C00 /* EateriesTableViewController.swift */; };
 		353FD28A1D9D7633001D9C00 /* EateriesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353FD2891D9D7633001D9C00 /* EateriesTableViewCell.swift */; };
-		354F6B341D9F964000FE3086 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354F6B331D9F964000FE3086 /* Restaurant.swift */; };
 		354F6B391D9FA37500FE3086 /* EateryDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354F6B381D9FA37500FE3086 /* EateryDetailTableViewCell.swift */; };
 		3554603A1DA1146C00DD19A5 /* RateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355460391DA1146C00DD19A5 /* RateViewController.swift */; };
 		3596F90B1D9F8515009F1BE7 /* EateryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3596F90A1D9F8515009F1BE7 /* EateryDetailViewController.swift */; };
 		35FD5B6F1DA144B4007BC4FF /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FD5B6E1DA144B4007BC4FF /* MapViewController.swift */; };
 		35FD5B721DA14503007BC4FF /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35FD5B711DA14503007BC4FF /* MapKit.framework */; };
+		D57F6EC2206037CA00DDF059 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57F6EC1206037CA00DDF059 /* CoreDataStack.swift */; };
+		D57F6EE6206039D300DDF059 /* Eateries.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D57F6EE4206039D300DDF059 /* Eateries.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,12 +33,13 @@
 		353FD2811D9D6E21001D9C00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		353FD2871D9D6EBF001D9C00 /* EateriesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EateriesTableViewController.swift; sourceTree = "<group>"; };
 		353FD2891D9D7633001D9C00 /* EateriesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EateriesTableViewCell.swift; sourceTree = "<group>"; };
-		354F6B331D9F964000FE3086 /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		354F6B381D9FA37500FE3086 /* EateryDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EateryDetailTableViewCell.swift; sourceTree = "<group>"; };
 		355460391DA1146C00DD19A5 /* RateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RateViewController.swift; sourceTree = "<group>"; };
 		3596F90A1D9F8515009F1BE7 /* EateryDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EateryDetailViewController.swift; sourceTree = "<group>"; };
 		35FD5B6E1DA144B4007BC4FF /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		35FD5B711DA14503007BC4FF /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		D57F6EC1206037CA00DDF059 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		D57F6EE5206039D300DDF059 /* Eateries.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Eateries.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,11 +81,12 @@
 				35FD5B6E1DA144B4007BC4FF /* MapViewController.swift */,
 				3507838C1DA3584C0091BC42 /* NewEateryTableViewController.swift */,
 				354F6B3A1D9FA38000FE3086 /* Detail */,
-				354F6B331D9F964000FE3086 /* Restaurant.swift */,
 				353FD27C1D9D6E21001D9C00 /* Assets.xcassets */,
 				353FD2791D9D6E21001D9C00 /* Main.storyboard */,
 				353FD27E1D9D6E21001D9C00 /* LaunchScreen.storyboard */,
 				353FD2811D9D6E21001D9C00 /* Info.plist */,
+				D57F6EC1206037CA00DDF059 /* CoreDataStack.swift */,
+				D57F6EE4206039D300DDF059 /* Eateries.xcdatamodeld */,
 			);
 			path = Eateries;
 			sourceTree = "<group>";
@@ -185,10 +188,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				354F6B391D9FA37500FE3086 /* EateryDetailTableViewCell.swift in Sources */,
-				354F6B341D9F964000FE3086 /* Restaurant.swift in Sources */,
+				D57F6EE6206039D300DDF059 /* Eateries.xcdatamodeld in Sources */,
 				353FD2761D9D6E21001D9C00 /* AppDelegate.swift in Sources */,
 				353FD2881D9D6EBF001D9C00 /* EateriesTableViewController.swift in Sources */,
 				3596F90B1D9F8515009F1BE7 /* EateryDetailViewController.swift in Sources */,
+				D57F6EC2206037CA00DDF059 /* CoreDataStack.swift in Sources */,
 				353FD28A1D9D7633001D9C00 /* EateriesTableViewCell.swift in Sources */,
 				3507838D1DA3584C0091BC42 /* NewEateryTableViewController.swift in Sources */,
 				3554603A1DA1146C00DD19A5 /* RateViewController.swift in Sources */,
@@ -373,6 +377,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D57F6EE4206039D300DDF059 /* Eateries.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D57F6EE5206039D300DDF059 /* Eateries.xcdatamodel */,
+			);
+			currentVersion = D57F6EE5206039D300DDF059 /* Eateries.xcdatamodel */;
+			path = Eateries.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 353FD26A1D9D6E21001D9C00 /* Project object */;
 }

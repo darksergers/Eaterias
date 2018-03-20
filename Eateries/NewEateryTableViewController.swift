@@ -48,6 +48,7 @@ class NewEateryTableViewController: UITableViewController, UIImagePickerControll
             let alertController = UIAlertController(title: "Не все поля заполнены", message:"Заполните поля" , preferredStyle: .alert)
             let alertAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
             alertController.addAction(alertAction)
+            present(alertController, animated: true, completion: nil)
         } else {
             if let context = (UIApplication.shared.delegate as? AppDelegate)?.coreDataStack.persistentContainer.viewContext {
                 let restaurant = Restaurant(context: context)

@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import CoreData
 
 class EateriesTableViewController: UITableViewController {
-  
+    
+    var fetchResultController: NSFetchedResultsController<Restaurant>!
+    
   var restaurants: [Restaurant] = []
 //    Restaurant(name: "Ogonёk Grill&Bar", type: "ресторан", location: "Уфа, бульвар Хадии Давлетшиной 21, вход со стороны улицы", image: "ogonek.jpg", isVisited: false),
 //    Restaurant(name: "Елу", type: "ресторан", location: "Уфа", image: "elu.jpg", isVisited: false),
@@ -42,11 +45,23 @@ class EateriesTableViewController: UITableViewController {
     tableView.rowHeight = UITableViewAutomaticDimension
     
     self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-    // Uncomment the following line to preserve selection between presentations
-    // self.clearsSelectionOnViewWillAppear = false
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    let fetchRequest:NSFetchRequest<Restaurant> = Restaurant.fetchRequest()
+    let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+    fetchRequest.sortDescriptors = [sortDescriptor]
+    
+    if let context = (UIApplication.shared.delegate as? AppDelegate)?.coreDataStack.persistentContainer.viewContext {
+        fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        
+        do {
+            try fetchResultController.performFetch()
+            restaurants = fetchResultController.fetchedObjects!
+            
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+    }
+    
   }
   
   // MARK: - Table view data source

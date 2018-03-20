@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class EateriesTableViewController: UITableViewController {
+class EateriesTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     
     var fetchResultController: NSFetchedResultsController<Restaurant>!
     
@@ -52,6 +52,7 @@ class EateriesTableViewController: UITableViewController {
     
     if let context = (UIApplication.shared.delegate as? AppDelegate)?.coreDataStack.persistentContainer.viewContext {
         fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        fetchResultController.delegate = self
         
         do {
             try fetchResultController.performFetch()
@@ -63,7 +64,32 @@ class EateriesTableViewController: UITableViewController {
     }
     
   }
-  
+  // MARK: - FetchResultController delegate
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.beginUpdates()
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case .insert:
+            guard let indexPath = newIndexPath else { break }
+            tableView.insertRows(at: [indexPath], with: .fade)
+        case .delete:
+            guard let indexPath = indexPath else { break }
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        case .update:
+            guard let indexPath = newIndexPath else { break }
+            tableView.reloadRows(at: [indexPath], with: .fade)
+        default:
+            tableView.reloadData();
+        }
+        restaurants = controller.fetchedObjects as! [Restaurant]
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.endUpdates()
+    }
+    
   // MARK: - Table view data source
   
   override func numberOfSections(in tableView: UITableView) -> Int {

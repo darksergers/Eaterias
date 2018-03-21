@@ -22,6 +22,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     UINavigationBar.appearance().barTintColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
     UINavigationBar.appearance().tintColor = .white
+//    if #available(iOS 11.0, *) {
+//        UINavigationBar.appearance().prefersLargeTitles = true
+//    } else {
+//       
+//    }
+    let statusBarView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 44))
+    statusBarView.backgroundColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
+    self.window?.rootViewController?.view.insertSubview(statusBarView, at: 1)
     
     if let barFont = UIFont(name: "AppleSDGothicNeo-Light", size: 24) {
       UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white, NSAttributedStringKey.font: barFont]

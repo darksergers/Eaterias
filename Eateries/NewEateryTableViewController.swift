@@ -56,6 +56,7 @@ class NewEateryTableViewController: UITableViewController, UIImagePickerControll
                 restaurant.location = adressTextField.text
                 restaurant.type = typeTextField.text
                 restaurant.isVisited = isVisited
+                restaurant.rate = 1
                 if let image = imageView.image {
                     restaurant.image = UIImagePNGRepresentation(image) as Data?
                 }

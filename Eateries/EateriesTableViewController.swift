@@ -74,9 +74,6 @@ class EateriesTableViewController: UITableViewController, NSFetchedResultsContro
         case .insert:
             guard let indexPath = newIndexPath else { break }
             tableView.insertRows(at: [indexPath], with: .fade)
-        case .delete:
-            guard let indexPath = indexPath else { break }
-            tableView.deleteRows(at: [indexPath], with: .fade)
         case .update:
             guard let indexPath = newIndexPath else { break }
             tableView.reloadRows(at: [indexPath], with: .fade)
@@ -120,51 +117,6 @@ class EateriesTableViewController: UITableViewController, NSFetchedResultsContro
 
 
   
-//  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//    // first alert controller with action sheet style
-//    let ac = UIAlertController(title: nil, message: "Выберите действие", preferredStyle: .actionSheet)
-//    // first alert controller action
-//    let call = UIAlertAction(title: "Позвонить: +7(347)111-111\(indexPath.row)", style: .default) {
-//      (action: UIAlertAction) -> Void in
-//      // second alert controller inside first action
-//      let alertC = UIAlertController(title: nil, message: "Вызов не может совершен", preferredStyle: .alert)
-//      // second alert controller action
-//      let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
-//      // add action to second alert controller
-//      alertC.addAction(ok)
-//      // present second alert controler
-//      self.present(alertC, animated: true, completion: nil)
-//    }
-//    // second action
-//    let isVisitedTitle = self.restaurantIsVisited[indexPath.row] ? "Я не был здесь" : "Я был здесь"
-//    let isVisited = UIAlertAction(title: isVisitedTitle, style: .default) { (action) in
-//      let cell = tableView.cellForRow(at: indexPath)
-//      
-//      self.restaurantIsVisited[indexPath.row] = !self.restaurantIsVisited[indexPath.row]
-//      cell?.accessoryType = self.restaurantIsVisited[indexPath.row] ? .checkmark : .none
-//    }
-//    // third action
-//    let cancel = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
-//    // add all actions to first alert controller
-//    ac.addAction(call)
-//    ac.addAction(isVisited)
-//    ac.addAction(cancel)
-//    //present first alert controller
-//    present(ac, animated: true, completion: nil)
-//    
-//    tableView.deselectRow(at: indexPath, animated: true)
-//  }
-  
-//  override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-//    
-//    if editingStyle == .delete {
-//      self.restaurantImages.remove(at: indexPath.row)
-//      self.restaurantNames.remove(at: indexPath.row)
-//      self.restaurantIsVisited.remove(at: indexPath.row)
-//    }
-////    tableView.reloadData()
-//    tableView.deleteRows(at: [indexPath], with: .fade)
-//  }
 
   override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
     
@@ -180,6 +132,15 @@ class EateriesTableViewController: UITableViewController, NSFetchedResultsContro
     let delete = UITableViewRowAction(style: .default, title: "Удалить") { (action, indexPath) in
       self.restaurants.remove(at: indexPath.row)
       tableView.deleteRows(at: [indexPath], with: .fade)
+        if let context = (UIApplication.shared.delegate as? AppDelegate)?.coreDataStack.persistentContainer.viewContext {
+            let objectToDelete = self.fetchResultController.object(at: indexPath)
+            context.delete(objectToDelete)
+            do {
+                try context.save()
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
     }
     
     share.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)

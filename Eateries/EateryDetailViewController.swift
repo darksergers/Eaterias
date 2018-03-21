@@ -29,6 +29,18 @@ class EateryDetailViewController: UIViewController, UITableViewDataSource, UITab
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    let rate = Int(truncatingIfNeeded:(restaurant?.rate)!)
+    switch  rate {
+    case 0:
+        rateButton.setImage(UIImage(named: "bad"), for: .normal)
+    case 1:
+        rateButton.setImage(UIImage(named: "good"), for: .normal)
+    case 2:
+        rateButton.setImage(UIImage(named: "brilliant"), for: .normal)
+    default: break
+    }
+    
 
     let buttons = [rateButton, mapButton]
     for button in buttons {
@@ -41,9 +53,6 @@ class EateryDetailViewController: UIViewController, UITableViewDataSource, UITab
     tableView.rowHeight = UITableViewAutomaticDimension
     
     imageView.image = UIImage(data: restaurant!.image!  as Data)
-    
-//    tableView.backgroundColor = #colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 1)
-//    tableView.separatorColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
     tableView.tableFooterView = UIView(frame: CGRect.zero)
     title = restaurant!.name
     
@@ -94,6 +103,9 @@ class EateryDetailViewController: UIViewController, UITableViewDataSource, UITab
     if segue.identifier == "mapSegue" {
       let dvc = segue.destination as! MapViewController
       dvc.restaurant = self.restaurant
+    } else if segue.identifier == "rateSegue" {
+        let dvc = segue.destination as! RateViewController
+        dvc.restaurant = self.restaurant
     }
   }
   

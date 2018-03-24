@@ -22,6 +22,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     UINavigationBar.appearance().barTintColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
     UINavigationBar.appearance().tintColor = .white
+    
+    UITabBar.appearance().tintColor = .white
+    UITabBar.appearance().barTintColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
+    UITabBar.appearance().selectionIndicatorImage = UIImage(named: "tabSelectBG")?.resizableImage(withCapInsets: UIEdgeInsets.init(top: 1, left: 0, bottom: 0, right: 0))
+    
+
 //    if #available(iOS 11.0, *) {
 //        UINavigationBar.appearance().prefersLargeTitles = true
 //    } else {
@@ -29,7 +35,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //    }
     let statusBarView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 44))
     statusBarView.backgroundColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
-    self.window?.rootViewController?.view.insertSubview(statusBarView, at: 1)
+//    self.window?.rootViewController?.view.insertSubview(statusBarView, at: 0)
+//    self.window?.rootViewController?.view.insertSubview(statusBarView, at: 2)
+    
     
     if let barFont = UIFont(name: "AppleSDGothicNeo-Light", size: 24) {
       UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white, NSAttributedStringKey.font: barFont]

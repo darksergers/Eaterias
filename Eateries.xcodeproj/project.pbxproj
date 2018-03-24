@@ -19,6 +19,8 @@
 		3596F90B1D9F8515009F1BE7 /* EateryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3596F90A1D9F8515009F1BE7 /* EateryDetailViewController.swift */; };
 		35FD5B6F1DA144B4007BC4FF /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FD5B6E1DA144B4007BC4FF /* MapViewController.swift */; };
 		35FD5B721DA14503007BC4FF /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35FD5B711DA14503007BC4FF /* MapKit.framework */; };
+		D52A300F20656D440089B723 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52A300E20656D440089B723 /* PageViewController.swift */; };
+		D52A301120656D630089B723 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52A301020656D630089B723 /* ContentViewController.swift */; };
 		D57F6EC2206037CA00DDF059 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57F6EC1206037CA00DDF059 /* CoreDataStack.swift */; };
 		D57F6EE6206039D300DDF059 /* Eateries.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D57F6EE4206039D300DDF059 /* Eateries.xcdatamodeld */; };
 /* End PBXBuildFile section */
@@ -38,6 +40,8 @@
 		3596F90A1D9F8515009F1BE7 /* EateryDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EateryDetailViewController.swift; sourceTree = "<group>"; };
 		35FD5B6E1DA144B4007BC4FF /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		35FD5B711DA14503007BC4FF /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		D52A300E20656D440089B723 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		D52A301020656D630089B723 /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		D57F6EC1206037CA00DDF059 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		D57F6EE5206039D300DDF059 /* Eateries.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Eateries.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -87,6 +91,7 @@
 				353FD2811D9D6E21001D9C00 /* Info.plist */,
 				D57F6EC1206037CA00DDF059 /* CoreDataStack.swift */,
 				D57F6EE4206039D300DDF059 /* Eateries.xcdatamodeld */,
+				D52A301220656D6B0089B723 /* Page */,
 			);
 			path = Eateries;
 			sourceTree = "<group>";
@@ -106,6 +111,15 @@
 				35FD5B711DA14503007BC4FF /* MapKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D52A301220656D6B0089B723 /* Page */ = {
+			isa = PBXGroup;
+			children = (
+				D52A300E20656D440089B723 /* PageViewController.swift */,
+				D52A301020656D630089B723 /* ContentViewController.swift */,
+			);
+			name = Page;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,7 +203,9 @@
 			files = (
 				354F6B391D9FA37500FE3086 /* EateryDetailTableViewCell.swift in Sources */,
 				D57F6EE6206039D300DDF059 /* Eateries.xcdatamodeld in Sources */,
+				D52A300F20656D440089B723 /* PageViewController.swift in Sources */,
 				353FD2761D9D6E21001D9C00 /* AppDelegate.swift in Sources */,
+				D52A301120656D630089B723 /* ContentViewController.swift in Sources */,
 				353FD2881D9D6EBF001D9C00 /* EateriesTableViewController.swift in Sources */,
 				3596F90B1D9F8515009F1BE7 /* EateryDetailViewController.swift in Sources */,
 				D57F6EC2206037CA00DDF059 /* CoreDataStack.swift in Sources */,

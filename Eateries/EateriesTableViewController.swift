@@ -80,6 +80,13 @@ class EateriesTableViewController: UITableViewController, NSFetchedResultsContro
         }
         
     }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if let pageViewController = storyboard?.instantiateViewController(withIdentifier: "pageViewController") as? PageViewController {
+            present(pageViewController, animated: true, completion: nil)
+        
+        }
+    }
     // MARK: - FetchResultController delegate
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.beginUpdates()

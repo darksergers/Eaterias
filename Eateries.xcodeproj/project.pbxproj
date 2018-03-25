@@ -23,6 +23,8 @@
 		D52A301120656D630089B723 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52A301020656D630089B723 /* ContentViewController.swift */; };
 		D57F6EC2206037CA00DDF059 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57F6EC1206037CA00DDF059 /* CoreDataStack.swift */; };
 		D57F6EE6206039D300DDF059 /* Eateries.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D57F6EE4206039D300DDF059 /* Eateries.xcdatamodeld */; };
+		D5B071642066A31A000B76EF /* AboutTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B071632066A31A000B76EF /* AboutTableViewController.swift */; };
+		D5B071662067B315000B76EF /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B071652067B315000B76EF /* WebViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		D52A301020656D630089B723 /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		D57F6EC1206037CA00DDF059 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		D57F6EE5206039D300DDF059 /* Eateries.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Eateries.xcdatamodel; sourceTree = "<group>"; };
+		D5B071632066A31A000B76EF /* AboutTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutTableViewController.swift; sourceTree = "<group>"; };
+		D5B071652067B315000B76EF /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +96,8 @@
 				D57F6EC1206037CA00DDF059 /* CoreDataStack.swift */,
 				D57F6EE4206039D300DDF059 /* Eateries.xcdatamodeld */,
 				D52A301220656D6B0089B723 /* Page */,
+				D5B071632066A31A000B76EF /* AboutTableViewController.swift */,
+				D5B071652067B315000B76EF /* WebViewController.swift */,
 			);
 			path = Eateries;
 			sourceTree = "<group>";
@@ -202,6 +208,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				354F6B391D9FA37500FE3086 /* EateryDetailTableViewCell.swift in Sources */,
+				D5B071642066A31A000B76EF /* AboutTableViewController.swift in Sources */,
 				D57F6EE6206039D300DDF059 /* Eateries.xcdatamodeld in Sources */,
 				D52A300F20656D440089B723 /* PageViewController.swift in Sources */,
 				353FD2761D9D6E21001D9C00 /* AppDelegate.swift in Sources */,
@@ -211,6 +218,7 @@
 				D57F6EC2206037CA00DDF059 /* CoreDataStack.swift in Sources */,
 				353FD28A1D9D7633001D9C00 /* EateriesTableViewCell.swift in Sources */,
 				3507838D1DA3584C0091BC42 /* NewEateryTableViewController.swift in Sources */,
+				D5B071662067B315000B76EF /* WebViewController.swift in Sources */,
 				3554603A1DA1146C00DD19A5 /* RateViewController.swift in Sources */,
 				35FD5B6F1DA144B4007BC4FF /* MapViewController.swift in Sources */,
 			);
